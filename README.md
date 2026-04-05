@@ -18,3 +18,22 @@
     "vitest": "^1.6.0"
   }
 }
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "outDir": "dist"
+  },
+  "include": ["scripts/**/*.ts", "src/**/*.ts"]
+}import { Keypair } from "@solana/web3.js";
+import fs from "node:fs";
+import path from "node:path";
+
+function getArg(flag: string): string | undefined {
+  const idx = process.argv.indexOf(flag
