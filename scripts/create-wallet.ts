@@ -3,8 +3,8 @@
 ## Bot wallet setup (Phantom funding workflow)
 
 This bot does **not** connect to Phantom directly. Instead:
-1) Generate a **separate local bot wallet keypair** (JSON file).
-2) **Fund the bot wallet** from Phantom with a small amount.
+1) You generate a **separate local bot wallet keypair** (JSON file).
+2) You **fund the bot wallet** from Phantom with a small amount.
 3) The bot signs transactions locally using the keypair file.
 
 ### Security warnings
@@ -17,6 +17,6 @@ This bot does **not** connect to Phantom directly. Instead:
 ## Windows + WSL2 (Ubuntu) setup
 
 ### 1) Install WSL2 + Ubuntu
-PowerShell (Admin):
+Open **PowerShell (Admin)**:
 ```powershell
 wsl --install
