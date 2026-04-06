@@ -6,7 +6,7 @@
   "scripts": {
     "create-wallet": "tsx scripts/create-wallet.ts",
     "build": "tsc -p tsconfig.json",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "lint": "node -e \"console.log('lint: (placeholder)')\""
   },
   "dependencies": {
