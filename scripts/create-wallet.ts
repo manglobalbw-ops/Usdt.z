@@ -1,22 +1,19 @@
-# Usdt.z
+import { Keypair } from "@solana/web3.js";
+import { writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { join } from "node:path";
 
-## Bot wallet setup (Phantom funding workflow)
+function main() {
+  const kp = Keypair.generate();
 
-This bot does **not** connect to Phantom directly. Instead:
-1) You generate a **separate local bot wallet keypair** (JSON file).
-2) You **fund the bot wallet** from Phantom with a small amount.
-3) The bot signs transactions locally using the keypair file.
+  const outDir = join(process.cwd(), "keys");
+  if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
 
-### Security warnings
-- Do **not** use your main Phantom wallet for automation.
-- Only fund the bot wallet with what you can afford to lose.
-- Never commit your keypair JSON to GitHub.
+  const outPath = join(outDir, "bot-wallet.json");
+  writeFileSync(outPath, JSON.stringify(Array.from(kp.secretKey)));
 
----
+  console.log("Saved keypair to:", outPath);
+  console.log("Public address:", kp.publicKey.toBase58());
+  console.log("WARNING: keep this file secret. Do not commit it.");
+}
 
-## Windows + WSL2 (Ubuntu) setup
-
-### 1) Install WSL2 + Ubuntu
-Open **PowerShell (Admin)**:
-```powershell
-wsl --install
+main();
