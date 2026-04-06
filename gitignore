@@ -1,0 +1,15 @@
+# secrets / local env
+.env
+
+# keypairs
+keys/
+*.keypair.json
+bot-keypair.json
+
+# node
+node_modules/
+dist/
+
+# misc
+*.db
+logs/
